@@ -587,7 +587,7 @@ private:
             //Move cursor up
             toFeed ~= format("\033[%dA", totalRows);
             //Remove text below current line
-            toFeed ~= "\033[s\033[E\033[0J\033[u";
+            if (totalRows > 1) toFeed ~= "\033[s\033[E\033[0J\033[u";
             vte.reset(true, false);
             vte.feed(toFeed);
         });
