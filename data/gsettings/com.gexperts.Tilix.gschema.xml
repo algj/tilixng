@@ -762,7 +762,7 @@
       <summary>Whether ambiguous-width characters are narrow or wide when using UTF-8 encoding</summary>
     </key>
     <key name="ctrl-backspace" enum="com.gexperts.Tilix.EraseControl">
-      <default>'none'</default>
+      <default>'control-w'</default>
       <summary>Makes the terminal threat "Control+Backspace" as different control instead of "Backspace". May be used as a shortcut for removing deleting a word instead of a character.</summary>
     </key>
     <!-- Terminal Title -->
