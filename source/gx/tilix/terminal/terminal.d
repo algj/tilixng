@@ -1447,7 +1447,7 @@ private:
         dialog.showAll();
         if (dialog.run() == ResponseType.APPLY) {
             pasteText = dialog.text;
-            this.pasteText(pasteText[0 .. $]);
+            vte.pasteText(pasteText[0 .. $]);
             if (gsProfile.getBoolean(SETTINGS_PROFILE_SCROLL_ON_INPUT_KEY)) {
                 scrollToBottom();
             }
@@ -1488,9 +1488,9 @@ private:
 
         if (gsSettings.getBoolean(SETTINGS_STRIP_FIRST_COMMENT_CHAR_ON_PASTE_KEY) && pasteText.length > 0 && (pasteText[0] == '#' || pasteText[0] == '$')) {
             pasteText = pasteText[1 .. $];
-            this.pasteText(pasteText);
+            vte.pasteText(pasteText);
         } else if (stripTrailingWhitespace) {
-            this.pasteText(pasteText);
+            vte.pasteText(pasteText);
         } else if (source == GDK_SELECTION_CLIPBOARD) {
             vte.pasteClipboard();
         } else {
@@ -2631,17 +2631,6 @@ private:
                 Signals.handlerUnblock(vte, _commitHandlerId);
             }
         }
-    }
-
-    void pasteText(string text) {
-        // It is better to use vte.pasteText(text), but a GtkD version that
-        // contains vte.pasteText(text) has not yet been released.  The current
-        // lateset version GtkD 3.10.0 does not have this interface.  We
-        // instead need to manually convert the newlines or implement the
-        // bracketed paste mode.  We use the simple newline conversion here.
-        // When the next version of GtkD is released, the following line should
-        // be replaced with "vte.pasteText(text);".
-        vte.feedChild(text.replace("\n", "\r"));
     }
 
     void showInfoBarMessage(string message) {
