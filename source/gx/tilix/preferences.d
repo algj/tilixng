@@ -219,6 +219,7 @@ enum SETTINGS_PROFILE_DELETE_BINDING_KEY = "delete-binding";
 enum SETTINGS_PROFILE_ENCODING_KEY = "encoding";
 enum SETTINGS_PROFILE_CJK_WIDTH_KEY = "cjk-utf8-ambiguous-width";
 immutable string[] SETTINGS_PROFILE_CJK_WIDTH_VALUES = ["narrow", "wide"];
+enum SETTINGS_PROFILE_ENABLE_SIXEL_KEY = "enable-sixel";
 
 enum SETTINGS_PROFILE_EXIT_ACTION_KEY = "exit-action";
 enum SETTINGS_PROFILE_EXIT_ACTION_CLOSE_VALUE = "close";

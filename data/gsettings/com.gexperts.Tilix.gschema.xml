@@ -749,6 +749,11 @@
       <default>'narrow'</default>
       <summary>Whether ambiguous-width characters are narrow or wide when using UTF-8 encoding</summary>
     </key>
+    <key name="enable-sixel" type="b">
+      <default>false</default>
+      <summary>Enable Sixel image support</summary>
+      <description>Allows display of Sixel inline graphics when supported by VTE.</description>
+    </key>
     <!-- Terminal Title -->
     <key name="terminal-title" type="s">
       <default>'${id}: ${title}'</default>

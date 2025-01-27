@@ -23,6 +23,7 @@ int[2] VTE_VERSION_TEXT_BLINK_MODE = [0, 51];
 int[2] VTE_VERSION_BOLD_IS_BRIGHT = [0, 51];
 int[2] VTE_VERSION_CELL_SCALE = [0, 51];
 int[2] VTE_VERSION_BACKGROUND_GET_COLOR = [0, 53];
+int[2] VTE_VERSION_SIXEL = [0, 63];
 
 /**
  * PCRE2 constants for VTE Regex
@@ -93,7 +94,8 @@ string getVTEVersion() {
 enum TerminalFeature {
     EVENT_NOTIFICATION,
     EVENT_SCREEN_CHANGED,
-    DISABLE_BACKGROUND_DRAW
+    DISABLE_BACKGROUND_DRAW,
+    SIXEL
 }
 
 private static bool g_vteTerminalLoaded = false;
@@ -122,6 +124,7 @@ bool checkVTEFeature(TerminalFeature feature) {
 
         // Check if disable background draw is available
         terminalFeatures[TerminalFeature.DISABLE_BACKGROUND_DRAW] = true;
+        terminalFeatures[TerminalFeature.SIXEL] = true;
 
         import gtkc.Loader: Linker;
         import gtkc.paths: LIBRARY;
@@ -131,6 +134,11 @@ bool checkVTEFeature(TerminalFeature feature) {
             if (failure == "vte_terminal_get_disable_bg_draw") {
                 trace("Background draw disabled");
                 terminalFeatures[TerminalFeature.DISABLE_BACKGROUND_DRAW] = false;
+            }
+            // Check for Sixel function availability
+            if (failure == "vte_terminal_set_enable_sixel" || failure == "vte_terminal_get_enable_sixel") {
+                terminalFeatures[TerminalFeature.SIXEL] = false;
+                tracef("Sixel function %s is missing", failure);
             }
             tracef("VTE function %s could not be linked", failure);
         }
