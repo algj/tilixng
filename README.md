@@ -1,4 +1,4 @@
-![Build Status](https://github.com/gnunn1/tilix/workflows/Build%20Test/badge.svg)
+![Build Status](https://github.com/algj/tilixng/workflows/Build%20Test/badge.svg)
 [![Translation status](https://hosted.weblate.org/widgets/tilix/-/svg-badge.svg)](https://hosted.weblate.org/engage/tilix/?utm_source=widget)
 # Tilix
 A tiling terminal emulator for Linux using GTK+ 3. The Tilix web site for users is available at [https://gnunn1.github.io/tilix-web](https://gnunn1.github.io/tilix-web).
@@ -35,6 +35,7 @@ Tilix is a tiling terminal emulator which uses the VTE GTK+ 3 widget with the fo
 * Clear output in right-click menu
 * Converts CTRL+Backspace to CTRL+H or other optional keybinds
 * Emoji support
+* Sixel image support when VTE is compiled with `-Dsixel=true`
 
 The application was written using GTK 3 and an effort was made to conform to GNOME Human Interface Guidelines (HIG). As a result, it does use CSD (i.e. the GTK HeaderBar)
 though it can be disabled if necessary. Other than GNOME, only Unity has been tested officially though users have had success with other desktop environments.
