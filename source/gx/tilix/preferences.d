@@ -1,4 +1,4 @@
-﻿/*
+/*
  * This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0. If a copy of the MPL was not
  * distributed with this file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
@@ -222,6 +222,7 @@ enum SETTINGS_PROFILE_CJK_WIDTH_KEY = "cjk-utf8-ambiguous-width";
 immutable string[] SETTINGS_PROFILE_CJK_WIDTH_VALUES = ["narrow", "wide"];
 enum SETTINGS_PROFILE_CTRL_BACKSPACE_KEY = "ctrl-backspace";
 immutable string[] SETTINGS_PROFILE_CTRL_BACKSPACE_VALUES = ["none", "control-w", "control-h", "control-?", "ascii-delete", "delete-sequence", "tty"];
+enum SETTINGS_PROFILE_ENABLE_SIXEL_KEY = "enable-sixel";
 
 enum SETTINGS_PROFILE_EXIT_ACTION_KEY = "exit-action";
 enum SETTINGS_PROFILE_EXIT_ACTION_CLOSE_VALUE = "close";

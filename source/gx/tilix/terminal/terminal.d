@@ -1897,7 +1897,7 @@ private:
 
             mmContext.appendItem(clipItem);
         }
-        
+
         //Section for screen actions (clearing output)
         GMenu screenSection = new GMenu();
         screenSection.append(_("Clear"), getActionDetailedName(ACTION_PREFIX, ACTION_CLEAR));
@@ -2398,6 +2398,11 @@ private:
         case SETTINGS_PROFILE_CJK_WIDTH_KEY:
             vte.setCjkAmbiguousWidth(to!int(countUntil(SETTINGS_PROFILE_CJK_WIDTH_VALUES, gsProfile.getString(SETTINGS_PROFILE_CJK_WIDTH_KEY))) + 1);
             break;
+        case SETTINGS_PROFILE_ENABLE_SIXEL_KEY:
+            if (checkVTEFeature(TerminalFeature.SIXEL)) {
+                vte.setEnableSixel(gsProfile.getBoolean(SETTINGS_PROFILE_ENABLE_SIXEL_KEY));
+            }
+            break;
         case SETTINGS_PROFILE_CURSOR_BLINK_MODE_KEY:
             vte.setCursorBlinkMode(getBlinkMode(gsProfile.getString(SETTINGS_PROFILE_CURSOR_BLINK_MODE_KEY)));
             break;
@@ -2541,6 +2546,7 @@ private:
             SETTINGS_PROFILE_DELETE_BINDING_KEY,
             SETTINGS_PROFILE_CJK_WIDTH_KEY, SETTINGS_PROFILE_ENCODING_KEY, SETTINGS_PROFILE_CURSOR_BLINK_MODE_KEY, //Only pass the one font key, will handle both cases
             SETTINGS_PROFILE_CTRL_BACKSPACE_KEY,
+            SETTINGS_PROFILE_ENABLE_SIXEL_KEY,
             SETTINGS_PROFILE_FONT_KEY,
             SETTINGS_TERMINAL_TITLE_STYLE_KEY, SETTINGS_AUTO_HIDE_MOUSE_KEY,
             SETTINGS_PROFILE_USE_CURSOR_COLOR_KEY,

@@ -765,6 +765,11 @@
       <default>'control-w'</default>
       <summary>Makes the terminal threat "Control+Backspace" as different control instead of "Backspace". May be used as a shortcut for removing deleting a word instead of a character.</summary>
     </key>
+    <key name="enable-sixel" type="b">
+      <default>false</default>
+      <summary>Enable Sixel image support</summary>
+      <description>Allows display of Sixel inline graphics when supported by VTE.</description>
+    </key>
     <!-- Terminal Title -->
     <key name="terminal-title" type="s">
       <default>'${id}: ${title}'</default>

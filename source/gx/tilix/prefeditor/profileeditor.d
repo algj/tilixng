@@ -1115,6 +1115,17 @@ private:
         grid.attach(cbCJK, 1, row, 1, 1);
         row++;
 
+        if (checkVTEFeature(TerminalFeature.SIXEL)) {
+            Label lblSixel = new Label(_("Enable Sixel Images"));
+            lblSixel.setHalign(GtkAlign.END);
+            grid.attach(lblSixel, 0, row, 1, 1);
+
+            CheckButton chkSixel = new CheckButton();
+            bh.bind(SETTINGS_PROFILE_ENABLE_SIXEL_KEY, chkSixel, "active", GSettingsBindFlags.DEFAULT);
+            grid.attach(chkSixel, 1, row, 1, 1);
+            row++;
+        }
+
         add(grid);
     }
 
